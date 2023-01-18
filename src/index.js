@@ -67,7 +67,7 @@ newProduct.innerHTML = `
 </td>
 <td class="price">$<span>${priceInput}</span></td>
 <td class="quantity">
-  <input type="number" value="0" min="0" placeholder="Quantity" />
+  <input type="number" value="1" min="0" placeholder="Quantity" />
 </td>
 <td class="subtotal">$<span>0</span></td>
 <td class="action">
@@ -79,6 +79,7 @@ console.log(newProduct)
   let bodyOfProducts = document.querySelector('tbody')
   // console.log(bodyOfProducts)
   bodyOfProducts.appendChild(newProduct)
+  calculateAll()
 }
 
 window.addEventListener('load', () => {
