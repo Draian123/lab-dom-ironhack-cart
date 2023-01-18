@@ -44,7 +44,7 @@ function calculateAll() {
 function removeProduct(event) {
   const target = event.currentTarget;
   const parentNode = target.parentNode.parentNode;
-  // console.log('The target in remove is:', target.parentNode.parentNode);
+  console.log('The target in remove is:', target.parentNode.parentNode);
   //... your code goes here
   parentNode.remove()
   calculateAll()
@@ -60,7 +60,8 @@ function createProduct() {
 
 
 let newProduct = document.createElement('tr')
-newProduct.className = 'product'
+// newProduct.classList.add('product')
+// newProduct.className = 'product'
 newProduct.innerHTML = `  
 <td class="name">
   <span>${textInput}</span>
@@ -73,13 +74,14 @@ newProduct.innerHTML = `
 <td class="action">
   <button class="btn btn-remove">Remove</button>
 </td>`
-
-console.log(newProduct)
+newProduct.classList.add('product')
 
   let bodyOfProducts = document.querySelector('tbody')
   // console.log(bodyOfProducts)
   bodyOfProducts.appendChild(newProduct)
   calculateAll()
+  const removeButton = document.querySelectorAll('.btn-remove');
+  removeButton.forEach(btn => btn.addEventListener('click',removeProduct));
 }
 
 window.addEventListener('load', () => {
